@@ -11,8 +11,39 @@ sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
     default="http://localhost:5050/")
 
-# def get_request(endpoint, **kwargs):
+# Mock data for testing
+MOCK_DEALERS = [
+    {
+        "id": 1,
+        "full_name": "Best Cars",
+        "city": "New York",
+        "address": "123 Main St",
+        "zip": "10001",
+        "state": "NY"
+    },
+    {
+        "id": 2,
+        "full_name": "Auto World",
+        "city": "Los Angeles",
+        "address": "456 Oak Ave",
+        "zip": "90001",
+        "state": "CA"
+    },
+    {
+        "id": 3,
+        "full_name": "Car City",
+        "city": "Chicago",
+        "address": "789 Pine St",
+        "zip": "60601",
+        "state": "IL"
+    }
+]
+
 def get_request(endpoint, **kwargs):
+    # For testing, return mock data
+    if "fetchDealers" in endpoint:
+        return MOCK_DEALERS
+    
     params = ""
     if(kwargs):
         for key,value in kwargs.items():
@@ -28,9 +59,8 @@ def get_request(endpoint, **kwargs):
     except:
         # If any error occurs
         print("Network exception occurred")
-# Add code for get requests to back end
+        return []
 
-# def analyze_review_sentiments(text):
 def analyze_review_sentiments(text):
     request_url = sentiment_analyzer_url+"analyze/"+text
     try:
@@ -40,10 +70,8 @@ def analyze_review_sentiments(text):
     except Exception as err:
         print(f"Unexpected {err=}, {type(err)=}")
         print("Network exception occurred")
-# request_url = sentiment_analyzer_url+"analyze/"+text
-# Add code for retrieving sentiments
+        return {"sentiment": "neutral"}
 
-# def post_review(data_dict):
 def post_review(data_dict):
     request_url = backend_url+"/insert_review"
     try:
@@ -52,4 +80,4 @@ def post_review(data_dict):
         return response.json()
     except:
         print("Network exception occurred")
-# Add code for posting review
+        return {"status": "error"}

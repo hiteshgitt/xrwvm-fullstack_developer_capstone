@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.views.decorators.csrf import csrf_exempt
 from .models import CarMake, CarModel
 from .populate import initiate
@@ -167,3 +167,10 @@ def add_review(request):
     else:
         return JsonResponse({"status":403,"message":"Unauthorized"})
 #     pass
+
+@csrf_exempt
+def logout_api(request):
+    if request.method == "GET":
+        logout(request)
+        return JsonResponse({"status": "Logged out"})
+    return JsonResponse({"error": "Only GET allowed"}, status=405)

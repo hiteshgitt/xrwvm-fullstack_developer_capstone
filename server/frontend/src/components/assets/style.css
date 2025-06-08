@@ -47,10 +47,12 @@ img{
   font-size: larger;
   }
 
-.loginlink{
+.loginlink {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 }
 
 .banner{
@@ -90,22 +92,21 @@ img{
   align-self: center;
 }
 
-.username{
+.username {
   font: 30px sans-serif;
-  color:black;
-  justify-content: 'flex-end';
-  align-self:flex-end;
-  vertical-align: middle;
+  color: black;
+  margin-right: 10px;
+  align-self: center;
 }
 
 .input_panel {
   display: flex;
   flex-direction: row;
-  padding: 20px;
-  flex: 1;
-  justify-content:flex-end;
-  align-items: flex-end;
-  vertical-align: middle;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 0;
+  gap: 10px;
+  height: 100%;
 }
 
 .small_header{
