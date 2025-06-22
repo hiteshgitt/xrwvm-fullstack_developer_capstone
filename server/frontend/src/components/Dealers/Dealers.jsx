@@ -20,6 +20,7 @@ const Dealers = () => {
       method: "GET"
     });
     const retobj = await res.json();
+    console.log("Dealers API Response:", retobj);
     if(retobj.status === 200) {
       let state_dealers = Array.from(retobj.dealers)
       setDealersList(state_dealers)
@@ -31,6 +32,7 @@ const Dealers = () => {
       method: "GET"
     });
     const retobj = await res.json();
+    console.log("Dealers API Response:", retobj);
     if(retobj.status === 200) {
       let all_dealers = Array.from(retobj.dealers)
       let states = [];

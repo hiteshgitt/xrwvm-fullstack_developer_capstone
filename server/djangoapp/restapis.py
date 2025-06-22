@@ -41,8 +41,8 @@ MOCK_DEALERS = [
 
 def get_request(endpoint, **kwargs):
     # For testing, return mock data
-    if "fetchDealers" in endpoint:
-        return MOCK_DEALERS
+    # if "fetchDealers" in endpoint:
+    #     return MOCK_DEALERS
     
     params = ""
     if(kwargs):

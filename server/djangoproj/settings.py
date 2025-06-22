@@ -11,10 +11,7 @@ SECRET_KEY = 'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0
 
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    'hiteshgml-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai'
-]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://hiteshgml-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
@@ -106,5 +103,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ✅ Fix redirection issues after admin login/logout
-LOGIN_REDIRECT_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/dealers/'
 LOGOUT_REDIRECT_URL = '/admin/login/'

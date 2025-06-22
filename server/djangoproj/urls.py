@@ -23,7 +23,7 @@ urlpatterns = [
     path('contact/', views.contact_view, name='contact'),
     
     # Default root path
-    path('', views.home_view, name='home'),
+    path('', TemplateView.as_view(template_name="index.html"), name='home'),
 ]
 
 # Serve static files during development
